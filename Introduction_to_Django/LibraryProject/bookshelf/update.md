@@ -1,9 +1,9 @@
 from bookshelf.models import Book
 
-b = Book.objects.get(id=1)
+book = Book.objects.get(id=1)
 
-b.title = "Nineteen Eighty-Four"
-b.save()
+book.title = "Nineteen Eighty-Four"
+book.save()
 
-print(b.title)
+print(book.title)
 # Nineteen Eighty-Four

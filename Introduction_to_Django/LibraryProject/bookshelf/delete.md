@@ -1,7 +1,7 @@
 from bookshelf.models import Book
 
-b = Book.objects.get(id=1)
-b.delete()
+book = Book.objects.get(id=1)
+book.delete()
 
-print(b)
+print(book)
 # Book object (None)
