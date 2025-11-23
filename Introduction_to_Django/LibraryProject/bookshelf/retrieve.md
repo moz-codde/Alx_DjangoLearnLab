@@ -1,6 +1,6 @@
 from bookshelf.models import Book
 
-b = Book.objects.first()
+b = Book.objects.get(id=1)
 
 print(b.title)
 # 1984
