@@ -9,5 +9,4 @@ author_name = Author.objects.get(id=1).name
 author = Author.objects.get(name=author_name)
 Book.objects.filter(author=author)
 
-
-librarian = library.librarian
+librarian = Librarian.objects.get(library=library)
