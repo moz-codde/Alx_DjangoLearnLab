@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
+from django.views.generic import CreateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
@@ -20,3 +22,8 @@ class LibraryDetailView(DetailView):
 class LibraryListView(ListView):
     queryset = Library.books.all()
     template_name = "templates/relationship_app/library_detail.html"
+
+
+class UserCreateView(CreateView):
+    fields = "__all__"
+    model = User
