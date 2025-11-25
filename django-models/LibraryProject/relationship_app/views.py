@@ -27,6 +27,7 @@ class LibraryListView(ListView):
 
 class UserCreateView(CreateView):
     form_class = UserCreationForm
+    template_name = "relationship_app/register.html"
 
 def register(request):
     pass
