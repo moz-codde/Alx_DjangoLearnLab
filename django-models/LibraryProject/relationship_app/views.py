@@ -27,3 +27,6 @@ class LibraryListView(ListView):
 
 class UserCreateView(CreateView):
     form_class = UserCreationForm
+
+def register(request):
+    pass
