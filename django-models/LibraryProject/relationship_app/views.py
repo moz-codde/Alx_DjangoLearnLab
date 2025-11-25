@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -25,5 +25,4 @@ class LibraryListView(ListView):
 
 
 class UserCreateView(CreateView):
-    fields = "__all__"
-    model = User
+    form_class = UserCreationForm
