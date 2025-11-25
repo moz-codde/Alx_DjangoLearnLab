@@ -40,4 +40,4 @@ class UserProfile(models.Model):
         ("Member", "Member"),
     )
     role = models.CharField(max_length=10, choices=ROLE_CHOICES)
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="userprofile")

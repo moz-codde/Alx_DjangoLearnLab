@@ -38,13 +38,13 @@ def register(request):
 
 # tests
 def is_admin(user):
-    return hasattr(user, 'profile') and user.profile.role == "Admin"
+    return hasattr(user, 'userprofile') and user.userprofile.role == "Admin"
 
 def is_librarian(user):
-    return hasattr(user, "profile") and user.profile.role == "Libarian"
+    return hasattr(user, "userprofile") and user.userprofile.role == "Libarian"
 
 def is_member(user):
-    return hasattr(user, "profile") and user.profile.role == "Member"
+    return hasattr(user, "userprofile") and user.userprofile.role == "Member"
 
 
 @user_passes_test(is_admin)
@@ -57,6 +57,6 @@ def librarian_view(request):
     return render(request, "relationship_app/librarian_view.html")
 
 
-@user_passes_test(is_member)
+@user_passes_test(lambda user: user.userprofile.role=="Member")
 def member_view(request):
     return render(request, "relationship_app/member_view.html")
