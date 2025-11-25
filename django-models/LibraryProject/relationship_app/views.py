@@ -22,7 +22,7 @@ class LibraryDetailView(DetailView):
 
 
 class LibraryListView(ListView):
-    queryset = Library.books.all()
+    queryset = Library.books
     template_name = "templates/relationship_app/library_detail.html"
 
 
@@ -38,13 +38,13 @@ def register(request):
 
 # tests
 def is_admin(user):
-    return hasattr(user, 'userprofile') and user.userprofile.role == "Admin"
+    return user.is_authenticated and hasattr(user, 'userprofile') and user.userprofile.role == "Admin"
 
 def is_librarian(user):
-    return hasattr(user, "userprofile") and user.userprofile.role == "Libarian"
+    return user.is_authenticated and hasattr(user, "userprofile") and user.userprofile.role == "Libarian"
 
 def is_member(user):
-    return hasattr(user, "userprofile") and user.userprofile.role == "Member"
+    return user.is_authenticated and hasattr(user, "userprofile") and user.userprofile.role == "Member"
 
 
 @user_passes_test(is_admin)
