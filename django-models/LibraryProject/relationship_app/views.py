@@ -37,15 +37,15 @@ def register(request):
 
 
 @user_passes_test(lambda user: user.profile.role == "Admin")
-def Admin(request):
+def admin_view(request):
     return render(request, "relationship_app/admin_view.html")
 
 
 @user_passes_test(lambda user: user.profile.role == "Librarian")
-def Librarian(request):
+def librarian_view(request):
     return render(request, "relationship_app/librarian_view.html")
 
 
 @user_passes_test(lambda user: user.profile.role == "Member")
-def Member(request):
+def member_view(request):
     return render(request, "relationship_app/member_view.html")
