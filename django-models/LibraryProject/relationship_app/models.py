@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Author(models.Model):
@@ -30,3 +31,8 @@ class Librarian(models.Model):
 
     def __repr__(self):
         return self.name
+
+
+class UserProfile(models.Model):
+    role = models.CharField(max_length=10, choices=("Admin", "Librarian", "Member"), default="Member")
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView
@@ -29,5 +30,22 @@ class UserCreateView(CreateView):
     form_class = UserCreationForm
     template_name = "relationship_app/register.html"
 
+
 def register(request):
     form = UserCreationForm()
+    pass
+
+
+@user_passes_test(lambda user: user.profile.role == "Admin")
+def admin_view(request):
+    ...
+
+
+@user_passes_test(lambda user: user.profile.role == "Librarian")
+def librarian_view(request):
+    ...
+
+
+@user_passes_test(lambda user: user.profile.role == "Member")
+def member_view(request):
+    ...
