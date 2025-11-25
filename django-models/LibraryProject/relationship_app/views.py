@@ -5,7 +5,7 @@ from django.views.generic.detail import DetailView
 from .models import Library, Book
 
 # Create your views here.
-def list_all_books(request):
+def list_books(request):
     """This view should render a simple text list of book titles and their authors."""
     books = Book.objects.all()
     return render(request, "templates/relationship_app/list_books.html", context={"books": books})
