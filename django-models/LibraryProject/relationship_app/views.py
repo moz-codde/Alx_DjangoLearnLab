@@ -30,4 +30,4 @@ class UserCreateView(CreateView):
     template_name = "relationship_app/register.html"
 
 def register(request):
-    pass
+    form = UserCreationForm()
